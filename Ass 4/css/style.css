@@ -1,0 +1,67 @@
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: white;
+    font-family: arial, sans-serif;
+  }
+
+  #screen {
+    position: relative;
+  }
+
+  video {
+    height: auto;
+    width: 100%;
+  }
+  
+  #screen > img {
+	display:none;
+	width:100%;
+	height:auto;
+  }
+    
+  #title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Denne var snazzy, likte den */
+  }
+
+  #title > img {
+    width: 100%;
+  }
+
+  /*PART 4*/
+  article {
+    width: 80%;
+    margin: 40px auto;
+	/*
+		Altså, nå er bredden av artikkelen 80% av bredden på vinduet. Da er 
+		den totale marginen 20% av bredden. Dette mathcer filmen i oppgaven. 
+		Marginen over teksten er annerledes på de to filmene i oppgaven, men 
+		de er konstante i begge. Såå jeg bare dobblet den. Det var sånn jeg 
+		tolket oppgaven i hvert fall. 
+		
+		Takk for oppmerksomheten! 
+		Her er premien din: http://i.imgur.com/ZH1dWJr.mp4
+	*/	
+  }
+
+  p {
+    color: black;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+/*PART 5*/  
+@media screen and (max-device-width:940px) {
+	video {
+		display:none;
+	}
+	#screen > img {
+		display:block;
+	}
+}

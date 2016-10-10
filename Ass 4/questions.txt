@@ -1,0 +1,22 @@
+﻿Why do mobile phones usually ignore auto play on video elements?
+	So that the user can stay in control of how much data they use. Simply put, to prevent unsolicited cellular download.
+
+What will the CSS snippet at the end of this section do if the visitor is browsing on a device with 320 x 568 resolution?
+	Nothing, the device screen width is not between 768 and 1024. Neither is it in landscape mode, soo...
+
+Mention some of the advantages of having a single responsive website instead of dedicated versions like m.til.no for mobile and til.no for desktop?
+	- Some mobile websites has some content removed to give more space to the content that matter. This means that you choose what content is most important for the user, and this can result in a bad UX...
+	- There aren't any reliable ways to detect if the client is a mobile device. This means you may end up redirecting desktop users - bad ux.
+	- You also have two places to do changes, if you have two website. This just makes it annoying to develop. Though a responsive website could be more difficult to make in it self.
+	- Can also hurt search traffic. It is a new domain, with the same content. Keyword: Confusion. This is also true if links are shared from the mobile website.
+	- As screen resolutions and mobile technology improves, your site may have to be reworked. Time and money..
+	
+
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  {
+  #logo {
+    display: none;    
+  }
+}

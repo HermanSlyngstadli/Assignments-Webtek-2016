@@ -1,0 +1,5 @@
+What is the difference between position: absolute and position: fixed?
+	Absolute is positioning relative to the document (or parent), and fixed is relative to the window (like tape on your screen).
+
+With CSS3, how do we access the third element within another element?
+	parent :nth-child(3). This selects the third child of the parent. (The space is really important)

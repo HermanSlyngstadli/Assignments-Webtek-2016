@@ -1,0 +1,86 @@
+﻿@charset="UTF-8";
+
+/* -- RESET -- */
+	* {
+		margin:0;
+		padding:0;
+	}
+	
+/* -- START MAIN CSS -- */
+	body {
+		background:#CADBDB;
+		color:#444;
+		font-family:Tahoma, Geneva, sans-serif;
+	}
+	
+/* GENERAL STYLES */
+	h1 {
+		margin:40px 0 20px 0;
+		color:#3F304D;
+	}
+	h1, h2 {
+		font-family:Verdana, Arial, Helvetica, sans-serif;
+	}
+	hr {
+		margin-bottom:20px;
+	}
+	p {
+		margin-bottom:20px;
+		line-height:170%;
+	}
+	ol li {
+		margin-left:20px;
+		margin-bottom:20px;
+		font-weight:bold;
+	}
+	li span.q {
+		
+	}
+	li span.a {
+		margin-left:30px;
+		font-weight:normal;
+	}
+	a {
+		text-decoration:none;
+		color:#7B658F;
+	}
+	a:hover {
+		text-decoration:underline;
+		color:#A584C4;
+	}
+	a:visited {
+		color:#914C21;
+	}
+	
+/* HEADER */
+	header {
+		width:960px;
+		margin: 0 auto;
+	}
+	
+/* SECTION */
+	section {
+		width:920px;
+		margin:0 auto;
+		margin-bottom:20px;
+		padding:20px;
+		background:#eee;
+	}
+	section img {
+		float:right;
+		margin-left:10px;
+		width:150px;
+		border:8px solid; /*Width 150px excluding the border*/
+	}
+	
+/* FOOTER */
+	footer {
+		width:100%;
+		
+	}
+	footer div {
+		width:960px;
+		margin:0 auto;
+		padding:10px 0;
+		text-align:center;
+	}

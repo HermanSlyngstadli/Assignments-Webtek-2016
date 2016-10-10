@@ -1,0 +1,62 @@
+﻿@charset="utf-8";
+		
+		/*
+		
+		Comment:
+				
+			I have intentionally not been consistent with the way I use selectors to highlight
+			that there are different ways of doing CSS. And also as a way of exploring.
+		
+		*/
+		
+		/*BRAWSA RESET*/
+		* {
+			margin:0;
+			padding:0;
+		} /* --- */ /* GOTTA LOOOVE DAT RESET, MMMM MMMMMMMMMMM */ /* --- */
+		body, html {
+			height:100%;
+		}
+		
+		/* LE MAIN URAPPØR */
+		.wrapper {
+			min-height:100%;
+			width:70%;
+			position:relative;
+		}
+		.wrapper > :nth-last-child(2) {
+			padding-bottom:20px; /*Makes space for the footer*/
+		}
+		
+		/*Estoy listo... !Vamos!*/
+		h1 + ul {
+			margin-left:20px;
+			font-size:16px;
+			text-transform:uppercase;
+		}		
+		.wrapper > ul > li {
+			list-style-type:square;
+		}
+		.wrapper > ul :nth-child(3), ul ul li {
+			text-transform:capitalize;
+		}
+		.wrapper > ul li ul li {
+			margin-left:40px;
+			list-style-type:circle;
+		}		
+		.wrapper > ul ul li:last-child {
+			font-family:Verdana;
+			color:red;
+		}
+		
+		
+		/*TOTAL ABUSE OF CSS SELECTORS, I HATE MYSELF. PROCEED WITH CAUTION*/
+		li[class=normpoint]:nth-child(2) > ul > .subpoint:nth-child(2n-1) {
+			text-transform:uppercase;
+		}
+		
+		/*FOOOTER*/
+		footer {
+			position:absolute;
+			bottom:0;
+		}

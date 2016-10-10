@@ -1,0 +1,48 @@
+﻿/* GENERAL STYLES */
+	body {
+		font-family: Verdana, Georgia, sans-serif;
+		background:#eee;
+		color:#222;
+	}
+	
+	article {
+		width: 70ch; /* Suppose you don't take space into account as a character. */
+		margin: auto;
+	}
+
+	h1 {
+		font-size: 3em;
+		margin-bottom:0; /* Didn't know if I should set the margin-top of the paragraph (byline) to zero as well, or just remove the standard format from the browser from the h1-tag. So I just did the latter. */
+	}
+
+	h2 {
+		font-size: 1.8em;
+	}
+
+	p, blockquote, ul, ol {
+		font-size: 1em;
+		line-height: 1.5em; /* Line height already is 1.5? */
+	}
+
+/* ARTICLE STYLES */
+	article img {
+		width:100%;
+	}
+	
+	article section {	
+		font-size:19px; /* Why isn't it just a fixed number? Are we just supposed to choose one at random? */
+	}
+	
+/* FACT BOX / ASIDE */
+	#facts {
+		margin: 1em 0em 1em 1em;
+		width: 50%;
+		border: 1px dashed;
+		float: right;
+	}
+
+	#facts > ul {
+		list-style-image: url('../img/cup-icon.svg');
+		line-height: 1.5em;
+		padding-left: 1.5em;
+	}
