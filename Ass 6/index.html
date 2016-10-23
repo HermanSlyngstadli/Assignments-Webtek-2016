@@ -1,38 +1,181 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>Norwegian Tax Administration - Tax form</title>
+
+		<style type="text/css">
+			* {
+				margin:0;
+				padding:0;
+			}
+			form {
+				width:600px;
+				margin:30px auto;
+				padding:20px;
+				background:#ddd;
+			}
+			h1 {
+				margin-bottom:30px;
+			}
+
+			.inputWrapper {
+				height:30px;
+				margin-top:10px;
+			}
+			input, select {
+				height:30px;
+				border:0;
+				width:400px;
+				float:right;
+			}
+			button {
+				width:100%;
+				height:40px;
+				clear:right;
+				margin-top:10px;	
+			}
+			label {
+				height:30px;
+			}
+			fieldset {
+				border:0;
+				margin-bottom: 20px;
+			}
+			legend {
+				font-weight: bold;
+				font-size:1.3em;
+			}
+		</style>
 	</head>
 	<body>
-		<form action="http://folk.ntnu.no/michaedm/norwegian-tax-administration/receive.php" method="post">
-			<label for="name">Real name</label><br />
-			<input id="name" /><br /><br />
+		<form action="http://folk.ntnu.no/michaedm/norwegian-tax-administration/receive.php" method="POST">
+			<h1>Superhero Tax Evaluation Form</h1>
+			<fieldset>
+				<legend></legend>
+				<div class="inputWrapper">
+					<label for="name">Real name</label>
+					<input name="name" pattern="[A-å\s]{1,}" required="required" />
+				</div>
 
-			<label for="gender">Gender</label><br />
-			<input id="gender" /><br /><br />
+				<div class="inputWrapper">
+					<label for="gender">Gender</label>
+					<select name="gender">
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
 
-			<label  for="email">E-mail</label><br />
-			<input  id="email" type="email" /><br /><br />
+				<div class="inputWrapper" >
+					<label  for="email">E-mail</label>
+					<input  name="email" type="email" required="required"/>
+				</div>
 
-			<label for="birthdate">Birthdate</label><br />
-			<input id="birthdate" /><br /><br />
+				<div class="inputWrapper">
+					<label for="birthdate">Birthdate</label>
+					<input name="birthdate" type="date" max="1987-12-31" required="required"/>
+				</div>
 
-			<label for="hero">Hero name</label><br />
-			<input id="hero" /><br /><br />
+				<div class="inputWrapper">
+						<!-- Tok utgangspunkt i disse navnene: http://comicvine.gamespot.com/profile/lvenger/lists/my-100-favourite-superheroes/17520/ -->
+						<label for="hero">Hero name</label>
+						<input name="hero" pattern="[A-å\s.()-]{1,}" required="required"/>
+				</div>
 
-			<label  for="spandex">Do you wear spandex?</label><br />
-			<input  id="spandex" type="checkbox"/><br /><br />
+				<div class="inputWrapper">
+					<label  for="spandex">Do you wear spandex?</label>
+					<input  name="spandex" type="checkbox"/>
+				</div>
 
-			<label for="strength">Strength</label><br />
-			<input id="strength" /><br /><br />
+				<div class="inputWrapper">
+					<label for="strength">Strength</label>
+					<select name="strength">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
 
-			<label for="speed">Speed</label><br />
-			<input id="speed" /><br /><br />
+				<div class="inputWrapper">
+					<label for="speed">Speed</label>
+					<select name="speed">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
 
-			<label for="intelligence">Intelligence</label><br />
-			<input id="intelligence" /><br /><br />
+				<div class="inputWrapper">
+					<label for="intelligence">Intelligence</label>
+					<select name="intelligence">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Economic status:</legend>
+
+				<div class="inputWrapper">
+					<label for="income">Income</label>
+					<input type="number" step="1" pattern="0-9" name="income" id="income"  required="required">
+				</div>
+
+				<div class="inputWrapper">
+					<label for="wealth">Savings</label>
+					<input type="number" step="1" pattern="0-9" name="wealth" id="wealth"  required="required">
+				</div>
+
+				<div class="inputWrapper">
+					<label for="tax">Taxes</label>
+					<input disabled id="tax" name="tax">
+				</div>
+			</fieldset>
 
 			<button type="submit">Submit</button>
 		</form>
+
+		<script type="text/javascript">
+			//Gogo gadget javascript skills
+
+			var incomeInput = document.getElementById('income');
+			var wealthInput = document.getElementById('wealth');
+			var taxInput = document.getElementById('tax');
+
+			incomeInput.addEventListener('keyup', function(e) {
+				calculateTax(this.value, wealthInput.value);
+			});
+
+			wealthInput.addEventListener('keyup', function(e) {
+				calculateTax(incomeInput.value, this.value);
+			});
+
+			function calculateTax(income, wealth) {
+				var tax = (0.35 * income) + (0.25 * wealth); // Damn you, formueskatt!
+				taxInput.value = Math.floor(tax);
+			}
+		</script>
 	</body>
 </html>
