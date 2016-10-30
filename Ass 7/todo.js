@@ -51,7 +51,7 @@ function addTask() {
 
 	// Set id of checkbox to timestamp of task and append to list
 	check.id = newTask.timestamp;
-	list.appendChild(newListElement);
+	list.insertBefore(newListElement, list.childNodes[0]);
 
 	// Update the output field
 	updateCounter();
@@ -74,7 +74,7 @@ function findIndex(checkId) {
 	// Finding index that mathces id of checkbox field and returning it
 	for (var i = 0; i < tasks.length; i++) {
 		if (tasks[i].timestamp == checkId) {
-			return i;
+			return (tasks.length - (i+1)); // Reversed order because elements are added to the top
 		}
 	}
 }
@@ -88,5 +88,5 @@ function updateCounter(command) {
 	}
 	
 	// Update output field
-	output.innerHTML = completeCounter + '/' + tasks.length;
+	output.innerHTML = completeCounter + '/' + tasks.length + ' completed';
 }
