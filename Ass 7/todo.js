@@ -11,7 +11,7 @@ var list = document.getElementById('taskList');
 var output = document.getElementsByTagName('output')[0];
 var completeCounter = 0;
 
-// Task objekt
+// Task object
 function task(timestamp, description) {
 	this.timestamp = timestamp;
 	this.description = description;
@@ -29,12 +29,12 @@ function addTask() {
 	var check = document.createElement('input');
 	check.type = 'checkbox';
 
-	// Add event listener to check box
+	// Add event listener to checkbox
 	check.addEventListener('change', function() {
 		changeStatus(this);
 	});
 
-	// Make input field
+	// Make input field and corresponding text node
 	var inputText = document.getElementById('inputField').value;
 	var taskDescription = document.createTextNode(inputText);
 
@@ -71,7 +71,7 @@ function changeStatus(checkbox) {
 }
 
 function findIndex(checkId) {
-	// Finding index that mathces id of checkbox field
+	// Finding index that mathces id of checkbox field and returning it
 	for (var i = 0; i < tasks.length; i++) {
 		if (tasks[i].timestamp == checkId) {
 			return i;
