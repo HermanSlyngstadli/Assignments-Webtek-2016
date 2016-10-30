@@ -30,20 +30,25 @@ function addTask() {
 	check.type = 'checkbox';
 
 	// Add event listener to checkbox
+	
 	check.addEventListener('change', function() {
 		changeStatus(this);
 	});
 
-	// Make input field and corresponding text node
+	// Get value from input field and put in text node
 	var inputText = document.getElementById('inputField').value;
 	var taskDescription = document.createTextNode(inputText);
+
+	// Make a span for holding the text
+	var textSpan = document.createElement('span');
+	textSpan.appendChild(taskDescription);
 
 	// Make list element
 	var newListElement = document.createElement('li');
 
 	// Append checkbox and text to list element
 	newListElement.appendChild(check);
-	newListElement.appendChild(taskDescription);
+	newListElement.appendChild(textSpan);
 
 	// Make a new task from object and push it to the array
 	var newTask = new task(Date.now(), taskDescription);
@@ -58,24 +63,13 @@ function addTask() {
 }
 
 function changeStatus(checkbox) {
-	var checkIndex = findIndex(checkbox.id);
+	//var checkIndex = findIndex(checkbox.id);
 
 	// Set or remove line-through
-	if (list.children[checkIndex].style.textDecoration == 'line-through') {
-		list.children[checkIndex].style.textDecoration = 'none';
+	if (!checkbox.checked) {
 		updateCounter('remove');
 	} else {
-		list.children[checkIndex].style.textDecoration = 'line-through';
 		updateCounter('add');
-	}
-}
-
-function findIndex(checkId) {
-	// Finding index that mathces id of checkbox field and returning it
-	for (var i = 0; i < tasks.length; i++) {
-		if (tasks[i].timestamp == checkId) {
-			return (tasks.length - (i+1)); // Reversed order because elements are added to the top
-		}
 	}
 }
 
@@ -90,3 +84,13 @@ function updateCounter(command) {
 	// Update output field
 	output.innerHTML = completeCounter + '/' + tasks.length + ' completed';
 }
+/*
+function findIndex(checkId) {
+	// Finding index that mathces id of checkbox field and returning it
+	for (var i = 0; i < tasks.length; i++) {
+		if (tasks[i].timestamp == checkId) {
+			return (tasks.length - (i+1)); // Reversed order because elements are added to the top
+		}
+	}
+}
+*/
