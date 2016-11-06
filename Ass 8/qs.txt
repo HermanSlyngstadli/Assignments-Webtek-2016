@@ -1,0 +1,24 @@
+1. What other context(s) can we get when calling getContext() on a Canvas element?
+	webgl, webgl2 and bitmaprenderer.
+
+	webgl and webgl2 are for funky fancy 3d rendering.
+
+	Bitmaprenderer is for only using bitmaps to replace the content the canvas.
+
+2. How would you create a blue circle using the Canvas element? Explain with words or code.
+
+	context.beginPath();
+	context.arc(x,y,r,0,2*Math.PI); // x- and y-coordinates for the center of the circle, (r) the radius and the start and end angle for the arc. Which here is 0 and 2*pi for a full revolution.
+	context.fillStyle = 'blue'; // The color to fill
+	context.fill(); // Fill the shape.
+
+
+3. What is a more terse (also known as shorter) way of writing the loop in the following using the Array.filter method?
+
+	const countries = ['Norway', 'Sweden',  'Denmark', 'New Zealand'];
+
+	const countriesStartingWithN = countries.filter(function(country){
+		return country.startsWith('N');
+	});
+
+	The filter method cycles through the target array and testing each value with the function. If it returns true it keeps the element in the new array, else it skips it.
